@@ -1,0 +1,5 @@
+.idea/*
+*.png
+*.pdf
+tmps/*
+__pycache__
