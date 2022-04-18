@@ -34,12 +34,11 @@ Please use `videoiq_env.yml` to install all required packages.
 ## Test/Inference
 Please execute `test_ada.py` to test the model, for example,
 ```bash
-python test_ada.py --dataset mini-sports1m --q_init 2 --backbone_net resnet_adaptive_quant2 -d 50 -b 72 -j 36 \
+python test_ada.py --dataset mini-sports1m --q_init 2 --backbone_net resnet_videoiq -d 50 -b 72 -j 36 \
  --logdir <log_dir_path>  --lr 0.0001 --epochs 50 --bit_width_family 32 4 2 --switch_bn --switch_clipval \
  --frames_per_group 1 --groups 16 --loss_type KD_CE --q_weight-decay 5e-4 5e-4 6e-2  \
  --multiprocessing-distributed --without_t_stride --disable_scaleup --p_lr 0.1 --efficient --balanced \
- --efficient_w 0.16 --balanced_w 0.5 --resnet_imagenet_path <fp_recognition_network_path> \
- --mobilenet_imagenet_path <fp_mb_path>  --is_32fp --auto_resume --is_policy_pred --entropy --entropy_w 0.1 \
+ --efficient_w 0.16 --balanced_w 0.5 --no_imagenet_pretrained  --is_32fp --auto_resume --is_policy_pred --entropy --entropy_w 0.1 \
  --p_b_lr 0.001 --q_lr 0.1 0.1 0.01  --skip_list 1 --datadir <dataset path> -e --pretrained <checkpoint path> \
 ```
 We also provide our trained `mini-sports1m` model (download link coming later) to test.
